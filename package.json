@@ -1,42 +1,56 @@
 {
-  "name": "@frog4js/core",
-  "version": "1.0.0",
-  "main": "index.js",
-  "description": "Fast and hook-base web framework, for Node.js core package",
-  "engines": {
-    "node": ">= 16.0.0"
-  },
-  "scripts": {
-    "lint:eslint": "eslint --fix --ext .js,.ts ./src",
-    "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\"",
-    "lint:lint-staged": "lint-staged",
-    "release": "standard-version",
-    "commit": "git -cz",
-    "test": "node --test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:frog4js/core.git"
-  },
-  "author": "frogjs@126.com1",
-  "license": "ISC",
-  "devDependencies": {
-    "@frog4js/devkit-cli": "^1.0.0",
-    "@frog4js/devkit-commitlint": "^1.0.0",
-    "@frog4js/eslint-config": "^1.0.0",
-    "@frog4js/devkit-prettier": "^1.0.0",
-    "koa-router": "12.0.1",
-    "koa": "2.14.2"
-  },
-  "commitlint": {
-    "extends": [
-      "@frog4js/devkit-commitlint"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "@frog4js"
-    ]
-  },
-  "prettier": "@frog4js/devkit-prettier"
+    "name": "@frog4js/core",
+    "version": "1.0.0",
+    "type": "module",
+    "exports": {
+        "./router": {
+            "import": "./src/router/share.mjs"
+        },
+        "./middleware": {
+            "import": "./src/middleware/share.mjs"
+        },
+        "./util": {
+            "import": "./src/util/share.mjs"
+        },
+        "./context": {
+            "import": "./src/context/share.mjs"
+        }
+    },
+    "description": "Fast and hook-base web framework, for Node.js core package",
+    "engines": {
+        "node": "^18 || >=20"
+    },
+    "scripts": {
+        "lint:eslint": "eslint --fix --ext .mjs,.ts ./src ./test",
+        "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{mjs,ts}\" \"test/**/*.{mjs,ts}\"",
+        "lint:lint-staged": "lint-staged",
+        "release": "standard-version",
+        "commit": "git -cz",
+        "test": "node --test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:frog4js/core.git"
+    },
+    "author": "frogjs@126.com1",
+    "license": "ISC",
+    "devDependencies": {
+        "@frog4js/devkit-cli": "^1.0.0",
+        "@frog4js/devkit-commitlint": "^1.0.0",
+        "@frog4js/eslint-config": "^1.0.0",
+        "@frog4js/devkit-prettier": "^1.0.0",
+        "koa-router": "12.0.1",
+        "koa": "2.14.2"
+    },
+    "commitlint": {
+        "extends": [
+            "@frog4js/devkit-commitlint"
+        ]
+    },
+    "eslintConfig": {
+        "extends": [
+            "@frog4js"
+        ]
+    },
+    "prettier": "@frog4js/devkit-prettier"
 }
